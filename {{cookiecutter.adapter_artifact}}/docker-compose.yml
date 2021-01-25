@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  jobmanager:
+    image: 591869475757.dkr.ecr.us-east-2.amazonaws.com/finflo-file-meta-adapter:latest
+    ports:
+      - "8081:8081"
+    env_file: .env/.local
+    command: standalone-job --job-classname io.openaristos.finflo.FinFloFileMetaAdapter --runner=FlinkRunner --filesToStage=target/finflo-file-meta-adapter-bundled.jar --inputLocation={{cookiecutter.raw_data_uri}} --fileParserCode=csv --fileEntryExtractorCode=default --awsRegion=us-east-2 --mappingMetadataURI={{cookiecutter.artifacts_uri}}/{{cookiecutter.adapter_code}}.yml --entitiesOutputLocation={{cookiecutter.landing_zone_uri}}/entities/test/ --errorOutputLocation={{cookiecutter.landing_zone_uri}}/errors/test/ --relationshipsOutputLocation={{cookiecutter.landing_zone_uri}}/relationships/test/ --assetsOutputLocation={{cookiecutter.landing_zone_uri}}/assets/test/
+  taskmanager:
+    image: 591869475757.dkr.ecr.us-east-2.amazonaws.com/finflo-file-meta-adapter:latest
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    env_file: .env/.local

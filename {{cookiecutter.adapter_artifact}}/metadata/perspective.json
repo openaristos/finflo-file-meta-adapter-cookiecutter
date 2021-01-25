@@ -1,0 +1,9 @@
+{
+    "name": "{{cookiecutter.perspective_name}}",
+    "code": "{{cookiecutter.perspective_code}}",
+    "description": "Perspective for `{{cookiecutter.perspective_name}}`",
+    "weight": 100,
+    "permanent_attributes": [
+        
+    ]
+}

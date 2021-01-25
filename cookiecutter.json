@@ -1,0 +1,11 @@
+{
+    "adapter_artifact": "my-adapter",
+    "adapter_name": "My Adapter",
+    "adapter_code": "{{ cookiecutter.adapter_artifact | lower | replace('-', '_') }}",
+    "perspective_name": "Customer",
+    "perspective_code": "{{ cookiecutter.perspective_name | lower | replace(' ', '_') }}",
+    "author": "John Doe",
+    "landing_zone_uri": "s3://bakplane-dev-landing-zone-internal",
+    "artifacts_uri": "s3://bakplane-dev-artifacts-internal",
+    "raw_data_uri": "s3://bakplane-dev-raw-data-internal"
+}

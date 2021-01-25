@@ -1,0 +1,73 @@
+{
+    "name": "{{cookiecutter.adapter_name}}",
+    "code": "{{cookiecutter.adapter_code}}",
+    "description": "Adapter for `{{cookiecutter.adapter_code}}`",
+    "author": "{{cookiecutter.author}}",
+    "provider": "{{cookiecutter.perspective_code}}",
+    "execution_profile": {
+        "engine_kind": "aws_emr",
+        "streaming": false,
+        "context": [
+            {
+                "key": "jar",
+                "value": "s3://openaristos-subscribers/adapters/finflo-file-meta-adapter.jar",
+                "data_type": "string"
+            },
+            {
+                "key": "mainClass",
+                "value": "io.openaristos.finflo.FinFloFileMetaAdapter",
+                "data_type": "string"
+            },
+            {
+                "key": "availabilityZone",
+                "value": "us-east-2a",
+                "data_type": "string"
+            },
+            {
+                "key": "application",
+                "value": "Flink",
+                "data_type": "string"
+            }
+        ]
+    },
+    "parameters": [
+        {
+            "key": "inputLocation",
+            "data_type": "string",
+            "default": "s3://bakplane-dev-raw-data-internal/axioma/history/1997/01/AXWW4-MH-S.19970102*"
+        },
+        {
+            "key": "mappingMetadataURI",
+            "data_type": "string"
+        },
+        {
+            "key": "fileParserCode",
+            "data_type": "csv"
+        },
+        {
+            "key": "fileEntryExtractorCode",
+            "data_type": "string"
+        },
+        {
+            "key": "assetsNumberOfShards",
+            "data_type": "integer",
+            "default": "8"
+        },
+        {
+            "key": "intervalReductionNumberOfShards",
+            "data_type": "integer",
+            "default": "8"
+        },
+        {
+            "key": "parallelism",
+            "data_type": "integer",
+            "default": "8"
+        },
+        {
+            "key": "awsRegion",
+            "data_type": "string",
+            "default": "us-east-2"
+        }
+    ],
+    "resources": []
+}
