@@ -33,8 +33,7 @@
     "parameters": [
         {
             "key": "inputLocation",
-            "data_type": "string",
-            "default": "s3://bakplane-dev-raw-data-internal/axioma/history/1997/01/AXWW4-MH-S.19970102*"
+            "data_type": "string"
         },
         {
             "key": "mappingMetadataURI",
