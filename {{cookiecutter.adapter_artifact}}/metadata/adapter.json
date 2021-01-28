@@ -37,15 +37,18 @@
         },
         {
             "key": "mappingMetadataURI",
-            "data_type": "string"
+            "data_type": "string",
+            "default": "{{cookiecutter.artifacts_uri}}/{{cookiecutter.adapter_code}}.yml"
         },
         {
             "key": "fileParserCode",
-            "data_type": "csv"
+            "data_type": "string",
+            "default": "csv"
         },
         {
             "key": "fileEntryExtractorCode",
-            "data_type": "string"
+            "data_type": "string",
+            "default": "default"
         },
         {
             "key": "assetsNumberOfShards",
